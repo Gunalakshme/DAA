@@ -1,17 +1,20 @@
-//Write a program   to print the reverse of a string using recursion
+reverse numbers
 #include <stdio.h>
-void reverseString(char str[]) {
-    if (str[0] == '\0') {
-        return;
+int reverseNumber(int num, int rev) {
+    if (num == 0) {
+        return rev;
+    } else {
+        return reverseNumber(num / 10, rev * 10 + num % 10);
     }
-    reverseString(&str[1]);
-    printf("%c", str[0]);
 }
-
 int main() {
-    char str[] = "Hello, World!";
-    reverseString(str);
+    int number, reversedNumber;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    reversedNumber = reverseNumber(number, 0);
+    printf("The reverse of the number is: %d", reversedNumber);
     return 0;
 }
-OUTPUT:
-!dlroW ,olleH
+output:
+Enter a number: 14216
+The reverse of the number is: 61241
